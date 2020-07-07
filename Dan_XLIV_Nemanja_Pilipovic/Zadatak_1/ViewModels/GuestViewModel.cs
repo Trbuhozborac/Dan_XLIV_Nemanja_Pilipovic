@@ -64,8 +64,7 @@ namespace Zadatak_1.ViewModels
                 price = value;
                 OnPropertyChanged("Price");
             }
-        }
-
+        }       
 
         #endregion
 
@@ -82,7 +81,7 @@ namespace Zadatak_1.ViewModels
                 }
                 return addItem;
             }
-        }
+        }      
 
         private ICommand save;
         public ICommand Save
@@ -130,7 +129,7 @@ namespace Zadatak_1.ViewModels
 
         private void AddNewItem()
         {
-            Price += Food.Price;
+            Price += Food.Price;           
         }
 
         private bool CanAddNewItem()
@@ -155,9 +154,8 @@ namespace Zadatak_1.ViewModels
                     db.tblOrders.Add(order);
                     db.SaveChanges();
                 }
-                MessageBox.Show("Ordered Successfully!");
-                main.Close();
-                //TODO ovde ga prebqacujem da vidi stanje porudzbine
+                MessageBox.Show($"Ordered Successfully! Order Status: {order.State}");
+                main.Close();                
             }
             catch (Exception ex)
             {

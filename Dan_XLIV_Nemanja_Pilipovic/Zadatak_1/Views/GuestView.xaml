@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadatak_1.Views"
         mc:Ignorable="d"
-        Title="GuestView" Height="450" Width="300">
+        Title="Make your Order" Height="450" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -41,6 +41,16 @@
                             <DataTemplate>
                                 <Button Name="btnAddItem" Content="+"
                                     Command="{Binding DataContext.AddItem, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnRemoveItem" Content="-"
+                                    Command="{Binding DataContext.RemoveItem, UpdateSourceTrigger=PropertyChanged, 
                                 RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                                     Margin="4" FontWeight="Bold"/>
                             </DataTemplate>

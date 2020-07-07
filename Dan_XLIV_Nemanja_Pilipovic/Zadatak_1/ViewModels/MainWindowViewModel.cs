@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using Zadatak_1.Commands;
+using Zadatak_1.Models;
 using Zadatak_1.Views;
 
 namespace Zadatak_1.ViewModels
@@ -86,8 +89,27 @@ namespace Zadatak_1.ViewModels
         {
             if (Username == "2201996800109" && Password == "Gost")
             {
-                GuestView view = new GuestView();
-                view.ShowDialog();
+                try
+                {
+                    using(PizzaRestourantEntities db = new PizzaRestourantEntities())
+                    {
+                        tblGuest guest = db.tblGuests.Where(x => x.Username == "2201996800109").FirstOrDefault();
+                        tblOrder order = db.tblOrders.Where(x => x.FKGuest == guest.Id).FirstOrDefault();
+                        if(order != null && order.State == "Waiting")
+                        {
+                            MessageBox.Show($"You Already Ordered. Order Status: {order.State}");
+                        }                       
+                        else
+                        {
+                            GuestView view = new GuestView();
+                            view.ShowDialog();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message.ToString());                   
+                }             
             }
             else if(Username == "Zaposleni" && Password == "Zaposleni")
             {
