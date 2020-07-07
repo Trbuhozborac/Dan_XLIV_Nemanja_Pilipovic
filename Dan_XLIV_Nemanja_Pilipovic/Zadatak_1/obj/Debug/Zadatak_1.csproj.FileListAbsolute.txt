@@ -20,3 +20,5 @@ C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_1.pdb
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\GuestView.g.cs
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\GuestView.baml
+C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\EmployeeView.g.cs
+C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\EmployeeView.baml

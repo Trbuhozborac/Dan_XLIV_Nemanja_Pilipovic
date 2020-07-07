@@ -1,0 +1,99 @@
+﻿<Window x:Class="Zadatak_1.Views.EmployeeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.Views"
+        mc:Ignorable="d"
+        Title="EmployeeView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <DataGrid x:Name="AllOrders" ItemsSource="{Binding AllOrders, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
+                      IsReadOnly="True" HeadersVisibility="Column" Margin="0,10,0,0" SelectedItem="{Binding Order, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Food" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Order Date" Binding="{Binding CreatedDate}"/>
+                    <DataGridTextColumn Header="Orderr Time" Binding="{Binding CreatedTime}"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding State}"/>
+                    <DataGridTextColumn Header="Order Owner" Binding="{Binding FkGuest}"/>
+                    
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAllow" Content="Accept Order"
+                                    Command="{Binding DataContext.AllowOrder, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDeclineOrder" Content="Decline Order"
+                                    Command="{Binding DataContext.DeclineOrder, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnSaveOrder" Content="Save Order"
+                                    Command="{Binding DataContext.SaveOrder, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDeleteOrder" Content="Delete Order"
+                                    Command="{Binding DataContext.DeleteOrder, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnSeeGuest" Content="Order Owner"
+                                    Command="{Binding DataContext.OrderOwner, UpdateSourceTrigger=PropertyChanged, 
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                    Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Button Grid.Column="1" Grid.Row="2" Name="btnClose" Content="Close" Height="20" Width="100" HorizontalAlignment="Right"
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

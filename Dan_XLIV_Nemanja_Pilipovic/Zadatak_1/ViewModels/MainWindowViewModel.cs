@@ -113,8 +113,8 @@ namespace Zadatak_1.ViewModels
             }
             else if(Username == "Zaposleni" && Password == "Zaposleni")
             {
-                //TODO otvori zaposleni prozor
-                MessageBox.Show("Zaposleni");
+                EmployeeView view = new EmployeeView();
+                view.ShowDialog();
             }
             else
             {
