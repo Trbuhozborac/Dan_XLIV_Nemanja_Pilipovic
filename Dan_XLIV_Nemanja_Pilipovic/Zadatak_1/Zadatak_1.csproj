@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,10 +86,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PizzaRestourantModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PizzaRestourantModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PizzaRestourantModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PizzaRestourantModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PizzaRestourantModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEmployee.cs">
+      <DependentUpon>PizzaRestourantModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblGuest.cs">
+      <DependentUpon>PizzaRestourantModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrder.cs">
+      <DependentUpon>PizzaRestourantModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -126,6 +143,12 @@
     <Content Include="Models\PizzaRestourantModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PizzaRestourantModel.Context.cs</LastGenOutput>
+      <DependentUpon>PizzaRestourantModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PizzaRestourantModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PizzaRestourantModel.edmx</DependentUpon>
+      <LastGenOutput>PizzaRestourantModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
