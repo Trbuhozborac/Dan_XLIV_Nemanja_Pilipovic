@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PizzaRestourantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblEmployees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tblGuests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tblOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Price" Type="int" />
+          <Property Name="State" Type="nvarchar" MaxLength="20" />
+          <Property Name="Created" Type="date" />
+          <Property Name="FKGuest" Type="int" />
+        </EntityType>
+        <Association Name="FK__tblOrders__FKGue__29572725">
+          <End Role="tblGuests" Type="Self.tblGuests" Multiplicity="0..1" />
+          <End Role="tblOrders" Type="Self.tblOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGuests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblOrders">
+              <PropertyRef Name="FKGuest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaRestourantModelStoreContainer">
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGuests" EntityType="Self.tblGuests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrders" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblOrders__FKGue__29572725" Association="Self.FK__tblOrders__FKGue__29572725">
+            <End Role="tblGuests" EntitySet="tblGuests" />
+            <End Role="tblOrders" EntitySet="tblOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PizzaRestourantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblGuest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK__tblOrders__FKGue__29572725" FromRole="tblGuests" ToRole="tblOrders" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="FKGuest" Type="Int32" />
+          <NavigationProperty Name="tblGuest" Relationship="Self.FK__tblOrders__FKGue__29572725" FromRole="tblOrders" ToRole="tblGuests" />
+        </EntityType>
+        <Association Name="FK__tblOrders__FKGue__29572725">
+          <End Role="tblGuests" Type="Self.tblGuest" Multiplicity="0..1" />
+          <End Role="tblOrders" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGuests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblOrders">
+              <PropertyRef Name="FKGuest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaRestourantEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="tblGuests" EntityType="Self.tblGuest" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+          <AssociationSet Name="FK__tblOrders__FKGue__29572725" Association="Self.FK__tblOrders__FKGue__29572725">
+            <End Role="tblGuests" EntitySet="tblGuests" />
+            <End Role="tblOrders" EntitySet="tblOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PizzaRestourantModelStoreContainer" CdmEntityContainer="PizzaRestourantEntities">
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="PizzaRestourantModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployees">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGuests">
+            <EntityTypeMapping TypeName="PizzaRestourantModel.tblGuest">
+              <MappingFragment StoreEntitySet="tblGuests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="PizzaRestourantModel.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FKGuest" ColumnName="FKGuest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
