@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadatak_1.Views"
         mc:Ignorable="d"
-        Title="EmployeeView" Height="450" Width="800">
+        Title="EmployeeView" Height="450" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -38,8 +38,7 @@
                     <DataGridTextColumn Header="Order Date" Binding="{Binding CreatedDate}"/>
                     <DataGridTextColumn Header="Orderr Time" Binding="{Binding CreatedTime}"/>
                     <DataGridTextColumn Header="State" Binding="{Binding State}"/>
-                    <DataGridTextColumn Header="Order Owner" Binding="{Binding FkGuest}"/>
-                    
+
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
