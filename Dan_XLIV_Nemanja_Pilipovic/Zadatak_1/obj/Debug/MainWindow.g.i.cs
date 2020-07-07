@@ -40,6 +40,54 @@ namespace Zadatak_1 {
     /// </summary>
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 33 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock lblUsername;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 34 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtUsername;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 37 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock lblPassword;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 38 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtPassword;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 41 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnLogin;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 44 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnClose;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -68,6 +116,27 @@ namespace Zadatak_1 {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.lblUsername = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 2:
+            this.txtUsername = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 3:
+            this.lblPassword = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 4:
+            this.txtPassword = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 5:
+            this.btnLogin = ((System.Windows.Controls.Button)(target));
+            return;
+            case 6:
+            this.btnClose = ((System.Windows.Controls.Button)(target));
+            return;
+            }
             this._contentLoaded = true;
         }
     }
