@@ -25,7 +25,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
           <ScalarProperty Name="FKGuest" ColumnName="FKGuest" />
         </MappingFragment>
       </EntityTypeMapping>

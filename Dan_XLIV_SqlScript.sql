@@ -26,7 +26,8 @@ CREATE TABLE tblOrders(
 Id int PRIMARY KEY IDENTITY(1,1),
 Price int,
 State nvarchar(20),
-Created Date,
+CreatedDate Date,
+CreatedTime Time,
 FKGuest int
 );
 

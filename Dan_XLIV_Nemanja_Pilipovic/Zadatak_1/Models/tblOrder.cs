@@ -17,7 +17,8 @@ namespace Zadatak_1.Models
         public int Id { get; set; }
         public Nullable<int> Price { get; set; }
         public string State { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.TimeSpan> CreatedTime { get; set; }
         public Nullable<int> FKGuest { get; set; }
     
         public virtual tblGuest tblGuest { get; set; }

@@ -18,3 +18,5 @@ C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_1.csproj.CopyComplete
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_1.exe
 C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Zadatak_1.pdb
+C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\GuestView.g.cs
+C:\Users\Pipi\Desktop\44\Dan_XLIV_Nemanja_Pilipovic\Zadatak_1\obj\Debug\Views\GuestView.baml

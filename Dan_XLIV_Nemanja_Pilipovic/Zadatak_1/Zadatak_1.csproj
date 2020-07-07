@@ -65,22 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Models\Food.cs" />
     <Compile Include="Models\PizzaRestourantModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +90,30 @@
     <Compile Include="Models\tblOrder.cs">
       <DependentUpon>PizzaRestourantModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\GuestViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\GuestView.xaml.cs">
+      <DependentUpon>GuestView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\GuestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -138,21 +147,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Models\PizzaRestourantModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PizzaRestourantModel.Context.cs</LastGenOutput>
       <DependentUpon>PizzaRestourantModel.edmx</DependentUpon>
+      <LastGenOutput>PizzaRestourantModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\PizzaRestourantModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PizzaRestourantModel.edmx</DependentUpon>
       <LastGenOutput>PizzaRestourantModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

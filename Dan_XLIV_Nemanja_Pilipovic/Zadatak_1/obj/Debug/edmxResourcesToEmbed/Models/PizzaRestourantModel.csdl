@@ -15,7 +15,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tblOrders" Relationship="Self.FK__tblOrders__FKGue__29572725" FromRole="tblGuests" ToRole="tblOrders" />
+    <NavigationProperty Name="tblOrders" Relationship="Self.FK__tblOrders__FKGue__47DBAE45" FromRole="tblGuests" ToRole="tblOrders" />
   </EntityType>
   <EntityType Name="tblOrder">
     <Key>
@@ -24,11 +24,12 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Price" Type="Int32" />
     <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="Created" Type="DateTime" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Precision="7" />
     <Property Name="FKGuest" Type="Int32" />
-    <NavigationProperty Name="tblGuest" Relationship="Self.FK__tblOrders__FKGue__29572725" FromRole="tblOrders" ToRole="tblGuests" />
+    <NavigationProperty Name="tblGuest" Relationship="Self.FK__tblOrders__FKGue__47DBAE45" FromRole="tblOrders" ToRole="tblGuests" />
   </EntityType>
-  <Association Name="FK__tblOrders__FKGue__29572725">
+  <Association Name="FK__tblOrders__FKGue__47DBAE45">
     <End Role="tblGuests" Type="Self.tblGuest" Multiplicity="0..1" />
     <End Role="tblOrders" Type="Self.tblOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -44,7 +45,7 @@
     <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
     <EntitySet Name="tblGuests" EntityType="Self.tblGuest" />
     <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
-    <AssociationSet Name="FK__tblOrders__FKGue__29572725" Association="Self.FK__tblOrders__FKGue__29572725">
+    <AssociationSet Name="FK__tblOrders__FKGue__47DBAE45" Association="Self.FK__tblOrders__FKGue__47DBAE45">
       <End Role="tblGuests" EntitySet="tblGuests" />
       <End Role="tblOrders" EntitySet="tblOrders" />
     </AssociationSet>
