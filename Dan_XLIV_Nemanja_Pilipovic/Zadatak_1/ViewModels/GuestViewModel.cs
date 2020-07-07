@@ -113,6 +113,10 @@ namespace Zadatak_1.ViewModels
 
         #region Functions
 
+        /// <summary>
+        /// Gets all Food for Menu
+        /// </summary>
+        /// <returns></returns>
         private List<Food> GetAllFood()
         {
             List<Food> food = new List<Food>();
@@ -127,16 +131,26 @@ namespace Zadatak_1.ViewModels
             return food;
         }
 
+        /// <summary>
+        /// Adds the Price of selected food 
+        /// </summary>
         private void AddNewItem()
         {
             Price += Food.Price;           
         }
 
+        /// <summary>
+        /// Checks if Food can be added
+        /// </summary>
+        /// <returns></returns>
         private bool CanAddNewItem()
         {
             return true;
         }
 
+        /// <summary>
+        /// Saves the Order in database
+        /// </summary>
         private void SaveExecute()
         {
             try
@@ -163,6 +177,10 @@ namespace Zadatak_1.ViewModels
             }
         }
 
+        /// <summary>
+        /// Checks if Saving of the Order can be Executed
+        /// </summary>
+        /// <returns></returns>
         private bool CanSaveExecute()
         {
             if(Price <= 0)
@@ -175,17 +193,23 @@ namespace Zadatak_1.ViewModels
             }
         }
 
+        /// <summary>
+        /// Close Main window
+        /// </summary>
         private void CloseExecute()
         {
             main.Close();
         }
 
+        /// <summary>
+        /// Checks if Main window can be clsoed
+        /// </summary>
+        /// <returns></returns>
         private bool CanCloseExecute()
         {
             return true;
         }
 
         #endregion
-
     }
 }

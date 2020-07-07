@@ -85,6 +85,9 @@ namespace Zadatak_1.ViewModels
 
         #region Functions
 
+        /// <summary>
+        /// Logs the Employee or Guest
+        /// </summary>
         private void LogInExecute()
         {
             if (Username == "2201996800109" && Password == "Gost")
@@ -122,6 +125,10 @@ namespace Zadatak_1.ViewModels
             }
         }
 
+        /// <summary>
+        /// Checks if Login can be Executed
+        /// </summary>
+        /// <returns></returns>
         private bool CanLogInExecute()
         {
             if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) ||
@@ -135,11 +142,18 @@ namespace Zadatak_1.ViewModels
             }
         }
 
+        /// <summary>
+        /// Close the Main window
+        /// </summary>
         private void CloseExecute()
         {
             main.Close();
         }
 
+        /// <summary>
+        /// Checks if Main window can be closed
+        /// </summary>
+        /// <returns></returns>
         private bool CanCloseExecute()
         {
             return true;

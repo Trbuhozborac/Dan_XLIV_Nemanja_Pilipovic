@@ -54,18 +54,6 @@ namespace Zadatak_1.ViewModels
             }
         }
 
-        private string guestUsername;
-
-        public string GuestUsername
-        {
-            get { return guestUsername; }
-            set 
-            {
-                guestUsername = GetGuestUsername();                
-                OnPropertyChanged("GuestUsername");
-            }            
-        }
-
         #endregion
 
         #region Commands
@@ -151,7 +139,11 @@ namespace Zadatak_1.ViewModels
         #endregion
 
         #region Functions
-
+        
+        /// <summary>
+        /// Gets All orders from the database
+        /// </summary>
+        /// <returns>All Orders</returns>
         private List<tblOrder> GetAllOrders()
         {
             List<tblOrder> allOrders = new List<tblOrder>();
@@ -170,25 +162,9 @@ namespace Zadatak_1.ViewModels
             }
         }
 
-        private string GetGuestUsername()
-        {
-            try
-            {
-                using(PizzaRestourantEntities db = new PizzaRestourantEntities())
-                {
-                    tblOrder newOrder = db.tblOrders.Where(x => x.Id == Order.Id).FirstOrDefault();
-                    tblGuest guest = db.tblGuests.Where(x => x.Id == newOrder.FKGuest).FirstOrDefault();
-                    string username = guest.Username.ToString();
-                    return username;
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message.ToString());
-                return null;
-            }
-        }
-
+        /// <summary>
+        /// Checks if Order can be Accepted
+        /// </summary>
         private void AllowNewOrder()
         {
             tblOrder selectedOrder = new tblOrder();
@@ -217,11 +193,18 @@ namespace Zadatak_1.ViewModels
             };
         }
 
+        /// <summary>
+        /// Allows switching state of order
+        /// </summary>
+        /// <returns></returns>
         private bool CanAllowOrder()
         {
             return true;
         }
 
+        /// <summary>
+        /// Declines the Order
+        /// </summary>
         private void DeclineNewOrder()
         {
             tblOrder selectedOrder = new tblOrder();
@@ -250,11 +233,18 @@ namespace Zadatak_1.ViewModels
             };
         }
 
+        /// <summary>
+        /// Checks if Order can be Declined
+        /// </summary>
+        /// <returns></returns>
         private bool CanDeclineOrder()
         {
             return true;
         }
         
+        /// <summary>
+        /// Switch Order status to Saved
+        /// </summary>
         private void SaveNewOrder()
         {
             tblOrder selectedOrder = new tblOrder();
@@ -283,11 +273,18 @@ namespace Zadatak_1.ViewModels
             };
         }
 
+        /// <summary>
+        /// Checks if Order can be Saved
+        /// </summary>
+        /// <returns></returns>
         private bool CanSaveOrder()
         {
             return true;
         }
 
+        /// <summary>
+        /// Deletes selected Order
+        /// </summary>
         private void DeleteNewOrder()
         {
             tblOrder selectedOrder = new tblOrder();
@@ -329,21 +326,35 @@ namespace Zadatak_1.ViewModels
             };
         }
 
+        /// <summary>
+        /// Checks if Order can be Deleted
+        /// </summary>
+        /// <returns></returns>
         private bool CanDeleteOrder()
         {
             return true;
         }
 
+        /// <summary>
+        /// Closes the Main window
+        /// </summary>
         private void CloseWindow()
         {
             main.Close();
         }
 
+        /// <summary>
+        /// Chcks if window can be closed
+        /// </summary>
+        /// <returns></returns>
         private bool CanCloseWindow()
         {
             return true;
         }
 
+        /// <summary>
+        /// Gets the Guest that ordered selecred order
+        /// </summary>
         private void GetOrderOwner()
         {
             tblOrder selectedOrder = new tblOrder();
@@ -363,6 +374,10 @@ namespace Zadatak_1.ViewModels
             };
         }
 
+        /// <summary>
+        /// Checks if Employee can get the Guest of the Owner
+        /// </summary>
+        /// <returns></returns>
         private bool CanGetOrderOwner()
         {
             return true;
