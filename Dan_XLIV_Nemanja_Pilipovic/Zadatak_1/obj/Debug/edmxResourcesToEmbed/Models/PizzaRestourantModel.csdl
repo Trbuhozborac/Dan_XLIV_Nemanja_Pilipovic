@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PizzaRestourantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblGuest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblOrders" Relationship="Self.FK__tblOrders__FKGue__47DBAE45" FromRole="tblGuests" ToRole="tblOrders" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Precision="7" />
+    <Property Name="FKGuest" Type="Int32" />
+    <NavigationProperty Name="tblGuest" Relationship="Self.FK__tblOrders__FKGue__47DBAE45" FromRole="tblOrders" ToRole="tblGuests" />
+  </EntityType>
+  <Association Name="FK__tblOrders__FKGue__47DBAE45">
+    <End Role="tblGuests" Type="Self.tblGuest" Multiplicity="0..1" />
+    <End Role="tblOrders" Type="Self.tblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGuests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblOrders">
+        <PropertyRef Name="FKGuest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PizzaRestourantEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblGuests" EntityType="Self.tblGuest" />
+    <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+    <AssociationSet Name="FK__tblOrders__FKGue__47DBAE45" Association="Self.FK__tblOrders__FKGue__47DBAE45">
+      <End Role="tblGuests" EntitySet="tblGuests" />
+      <End Role="tblOrders" EntitySet="tblOrders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
