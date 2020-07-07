@@ -96,11 +96,10 @@ namespace Zadatak_1.ViewModels
                 {
                     using(PizzaRestourantEntities db = new PizzaRestourantEntities())
                     {
-                        tblGuest guest = db.tblGuests.Where(x => x.Username == "2201996800109").FirstOrDefault();
-                        tblOrder order = db.tblOrders.Where(x => x.FKGuest == guest.Id).FirstOrDefault();
-                        if(order != null && order.State == "Waiting")
+                        if(db.tblOrders.Any(x => x.State == "Waiting"))
                         {
-                            MessageBox.Show($"You Already Ordered. Order Status: {order.State}");
+                            MessageBox.Show($"You Already Ordered. Order Status: Waiting");
+
                         }                       
                         else
                         {

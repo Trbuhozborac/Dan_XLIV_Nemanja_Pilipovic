@@ -34,7 +34,7 @@
             <DataGrid x:Name="AllOrders" ItemsSource="{Binding AllOrders, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
                       IsReadOnly="True" HeadersVisibility="Column" Margin="0,10,0,0" SelectedItem="{Binding Order, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Food" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
                     <DataGridTextColumn Header="Order Date" Binding="{Binding CreatedDate}"/>
                     <DataGridTextColumn Header="Orderr Time" Binding="{Binding CreatedTime}"/>
                     <DataGridTextColumn Header="State" Binding="{Binding State}"/>
